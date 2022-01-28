@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+  <consumer>
+    <!-- Kafka cluster -->
+    <broker>10.10.3.12:9092</broker>
+
+    <!-- topic 可以配多个-->
+    <topic>biz-test-log1</topic>
+    <!-- <topic>top2</topic> -->
+    
+
+    <!-- Kafka 分组 -->
+    <group>test-group</group>
+
+    <!-- Kafka 版本 -->
+    <version>2.2.0</version>
+
+    <!-- partition 个数，开consumer个数不能超过这个 -->
+    <partition>1</partition>
+
+    <!-- 副本因子 -->
+    <replication>1</replication>
+  </consumer>
+
+  <elastic_url>http://10.10.7.135:19201</elastic_url>
+
+  <elastic_worker>
+    <!-- 最大缓冲 这个小点可以防止崩溃导致丢失太多-->
+    <max_msg>512</max_msg>
+
+    <!-- 线程个数 -->
+    <worker_number>1</worker_number>
+
+    <!-- 每个批次最大数量 -->
+    <batch_size>10</batch_size>
+
+    <!-- 处理频率（毫秒） -->
+    <tick_millisecond>5000</tick_millisecond>
+  </elastic_worker>
+
+
+</config>
